@@ -10,8 +10,8 @@ class StatsServiceTest {
         int[] salesAmount = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         StatsService service = new StatsService();
-        int actual = service.calculateSum(salesAmount);
 
+        int actual = service.calculateSum(salesAmount);
         int expected = 180;
         assertEquals(expected, actual);
     }
@@ -21,44 +21,61 @@ class StatsServiceTest {
         int[] salesAmount = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         StatsService service = new StatsService();
-        int actual = service.calculateAverage(salesAmount);
 
+        int actual = service.calculateAverage(salesAmount);
         int expected = 15;
         assertEquals(expected, actual);
     }
 
     @Test
 //    объявление теста - метод, кот ничего не возвращает и не принимает на вход
-    void shouldCalculateMonthNumMaxSales2() {
+    void shouldCalculateMonthNumMaxSales() {
 //       объявление и инициализация данных метода теста
         int[] salesAmount = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-//        начинаем с первого элемента массива
-        int monthNumMaxSales1 = 0;
-//        начинаем с шестого элемента массива
-        int monthNumMaxSales2 = 6;
 
 //        создание объекта, который описан в классе StatsService
         StatsService service = new StatsService();
 
-//        1.вызваем метод calculateMonthNumberPeakSales у объекта service
+//        1.вызваем метод calculateMonthNumMaxSales у объекта service
 //        2.чтобы метод сработал, мы должны передать переменную,
 //        в которой будут лежать данные для метода
-        int actual = service.calculateMonthNumMaxSales2(salesAmount, monthNumMaxSales1, monthNumMaxSales2);
+        int actual = service.calculateMonthNumMaxSales(salesAmount);
         int expected = 8;
-
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldCalculateMonthNumMinSales () {
+    void shouldCalculateMonthNumMinSales() {
         int[] salesAmount = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int monthNumMinSales = 0;
 
         StatsService service = new StatsService();
 
-        int actual = service.calculateMonthNumMinSales(salesAmount, monthNumMinSales);
+        int actual = service.calculateMonthNumMinSales(salesAmount);
         int expected = 9;
+        assertEquals(expected, actual);
+    }
 
+    @Test
+    void shouldCalculateMonthsUnderAverageSalesAmount() {
+        int[] salesAmount = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        StatsService service = new StatsService();
+
+        int actual = service.CalculateMonthsUnderAverageSalesAmount(salesAmount);
+        int expected = 5;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldCalculateMonthsOverAverageSalesAmount() {
+        int[] salesAmount = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        StatsService service = new StatsService();
+
+        int actual = service.CalculateMonthsOverAverageSalesAmount(salesAmount);
+        int expected = 5;
         assertEquals(expected, actual);
     }
 }
+
+

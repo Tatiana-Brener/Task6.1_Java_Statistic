@@ -11,72 +11,89 @@ public class StatsService {
         return sum;
     }
 
-    public int calculateAverage(int[] salesAmount) {
-        int average = 0;
-        int sum = 0;
 
-        for (int item : salesAmount) {
-            sum += item;
-            average = sum / salesAmount.length;
-        }
-        return average;
+    public int calculateAverage(int[] salesAmount) {
+        return calculateSum(salesAmount) / salesAmount.length;
     }
+
+    //    public int calculateAverage(int[] salesAmount) {
+//        int average = 0;
+//        int sum = 180;
+//
+//        for (int item : salesAmount) {
+//            average = sum / salesAmount.length;
+//        }
+//        return average;
+//    }
 
     // объявление метода
-    public int calculateMonthNumMaxSales2(int[] salesAmount, int monthNumMaxSales1, int monthNumMaxSales2) {
+    public int calculateMonthNumMaxSales(int[] salesAmount) {
 
 //        берем за точку отсчета первый элемент массива
-        int maxMonthlySales1 = salesAmount[0];
+        int maxMonthlySales = salesAmount[0];
+        int monthNumMaxSales = 0;
+        int count = 0;
 
-//        int arrayItem - тип переменной и имя переменной
+//        int item - тип переменной и имя переменной
 //        salesAmount - элементы, по которым собираемся ходить
-//        перебрать переменой arrayItem все значения, что лежат
+//        перебрать переменой item все значения, что лежат
 //        в массиве salesAmount и для каждого значения выполнить код в {}
-        for (int arrayItem : salesAmount) {
-            if (maxMonthlySales1 <= arrayItem) {
-                maxMonthlySales1 = arrayItem;
-
-                monthNumMaxSales1 = monthNumMaxSales1 + 1;
+        for (int item : salesAmount) {
+            count++;
+            if (maxMonthlySales <= item) {
+                maxMonthlySales = item;
+                monthNumMaxSales = count;
             }
         }
-
-        int maxMonthlySales2 = salesAmount[monthNumMaxSales1];
-
-        for (int arrayItem : salesAmount) {
-            if (maxMonthlySales2 <= arrayItem) {
-                maxMonthlySales2 = arrayItem;
-
-                monthNumMaxSales2 = monthNumMaxSales2 + 1;
-            }
-        }
-        return monthNumMaxSales2;
+        return monthNumMaxSales;
     }
 
-    public int calculateMonthNumMinSales(int[] salesAmount, int monthNumMinSales) {
-
+    public int calculateMonthNumMinSales(int[] salesAmount) {
         int minMonthlySales = salesAmount[0];
+        int monthNumMinSales = 0;
+        int count = 0;
 
-        for (int arrayItem : salesAmount) {
-
-            if (minMonthlySales <= arrayItem) {
-                minMonthlySales = minMonthlySales;
-                monthNumMinSales = monthNumMinSales + 1;
-
+        for (int item : salesAmount) {
+            count++;
+            if (minMonthlySales >= item) {
+                minMonthlySales = item;
+                monthNumMinSales = count;
             }
-            if (minMonthlySales >= arrayItem) {
-                minMonthlySales = arrayItem;
-                monthNumMinSales = monthNumMinSales + 1;
-            }
-//            else  {
-//                minMonthlySales = arrayItem;
-//                monthNumMinSales = monthNumMinSales + 1;
-//            }
-
         }
         return monthNumMinSales;
     }
 
+    public int CalculateMonthsUnderAverageSalesAmount(int[] salesAmount) {
+        int salesAverage = calculateAverage(salesAmount);
+        int monthsNumUnderAverageSales = 0;
+        int count = 0;
+
+        for (int item : salesAmount) {
+            if (salesAverage > item) {
+                count++;
+                monthsNumUnderAverageSales = count;
+            }
+        }
+        return monthsNumUnderAverageSales;
+    }
+
+    public int CalculateMonthsOverAverageSalesAmount(int[] salesAmount) {
+        int salesAverage = calculateAverage(salesAmount);
+        int monthsNumOverAverageSales = 0;
+        int count = 0;
+
+        for (int item : salesAmount) {
+            if (salesAverage > item) {
+                count++;
+                monthsNumOverAverageSales = count;
+            }
+        }
+        return monthsNumOverAverageSales;
+    }
 }
+
+
+
 
 
 
