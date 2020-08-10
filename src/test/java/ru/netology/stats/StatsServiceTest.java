@@ -61,7 +61,7 @@ class StatsServiceTest {
 
         StatsService service = new StatsService();
 
-        int actual = service.CalculateMonthsUnderAverageSalesAmount(salesAmount);
+        int actual = service.calculateMonthsUnderAverageSalesAmount(salesAmount);
         int expected = 5;
         assertEquals(expected, actual);
     }
@@ -72,7 +72,7 @@ class StatsServiceTest {
 
         StatsService service = new StatsService();
 
-        int actual = service.CalculateMonthsOverAverageSalesAmount(salesAmount);
+        int actual = service.calculateMonthsOverAverageSalesAmount(salesAmount);
         int expected = 5;
         assertEquals(expected, actual);
     }

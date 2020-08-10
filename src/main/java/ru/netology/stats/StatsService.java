@@ -16,15 +16,6 @@ public class StatsService {
         return calculateSum(salesAmount) / salesAmount.length;
     }
 
-    //    public int calculateAverage(int[] salesAmount) {
-//        int average = 0;
-//        int sum = 180;
-//
-//        for (int item : salesAmount) {
-//            average = sum / salesAmount.length;
-//        }
-//        return average;
-//    }
 
     // объявление метода
     public int calculateMonthNumMaxSales(int[] salesAmount) {
@@ -63,7 +54,7 @@ public class StatsService {
         return monthNumMinSales;
     }
 
-    public int CalculateMonthsUnderAverageSalesAmount(int[] salesAmount) {
+    public int calculateMonthsUnderAverageSalesAmount(int[] salesAmount) {
         int salesAverage = calculateAverage(salesAmount);
         int monthsNumUnderAverageSales = 0;
         int count = 0;
@@ -77,7 +68,7 @@ public class StatsService {
         return monthsNumUnderAverageSales;
     }
 
-    public int CalculateMonthsOverAverageSalesAmount(int[] salesAmount) {
+    public int calculateMonthsOverAverageSalesAmount(int[] salesAmount) {
         int salesAverage = calculateAverage(salesAmount);
         int monthsNumOverAverageSales = 0;
         int count = 0;
